@@ -89,12 +89,18 @@ header{
 /* Skill Section Items */
 .skill-item{
     background-color: var(--light);
-    border: 2px dotted var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 20px;
     padding: 30px 20px;
     text-align: center;
     font-weight: bold;
     font-size: 1.1rem;
+    transition: transform 0.2s,box-shadow 0.2s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgb(0 , 0 , 0.888);
 }
 
 /* Project Display Items */
@@ -112,6 +118,12 @@ header{
     color: white;
     overflow: hidden;
     text-align: center;
+    transition: transform 0.2s,box-shadow 0.2s;
+}
+
+.project-card:Hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgb(0 , 0 , 0.888);    
 }
 
 /* Project Image Card Items */
@@ -125,4 +137,146 @@ header{
 .project-card a{
     text-decoration: none;
     color: #FFB703
+}
+
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary:hover{
+    background-color: transparent;
+    color: #00a2ff;
+    border-color: #00a2ff;
+}
+
+.btn-secondary:hover{
+    background-color: transparent;
+    color: #00a2ff;
+    border-color: #00a2ff;
+}
+
+section{
+    padding: 40px 3%;
+}
+
+section h2{
+    font-size: 2.2rem;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+section h2::after{
+    content:"";
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: #00a2ff;
+    margin: 12px auto 0;
+    border-radius: 3px;
+}
+
+.hero-section h1{
+    animation: fadeinup 1.2s;
+}
+
+@keyframes fadeinup{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform: translateY(0);}
+}
+
+.tagline{
+    animation: fadeinup 1.5s;
+}
+
+.hero-button{
+    animation: fadeinup 1.9s;
+}
+
+.contact-section{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group{
+    margin-bottom: 2px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: 600px;
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.form-group input,.form-group textarea{
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #DDD;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    border-radius: 10px;
+}
+
+.form-group input:focus,.form-group textarea:focus{
+    outline:none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(27,79,114,0.15);
+}
+
+.site-footer{
+    background-color: var(--primary);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 40px 5%;
+}
+
+.site-footer a{
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+}
+
+.menu-toggle{
+    background-color: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.theme-toggle{
+    background-color: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;    
+}
+
+@media (max-width:768px){
+    .menu-toggle{
+        display:block;
+    }
+}
+.nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#1B4F72;
+    flex-direction:column;
+    text-align:center;
+    padding:20px 0;
+    gap:20px;
+}
+ 
+.nav-links.open{
+    display:flex;
 }
