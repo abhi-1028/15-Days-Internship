@@ -251,17 +251,9 @@ section h2::after{
     cursor: pointer;
 }
 
-.theme-toggle{
-    background-color: none;
-    border: none;
-    color: #FFFFFF;
-    font-size: 30px;
-    cursor: pointer;    
-}
-
 @media (max-width:768px){
     .menu-toggle{
-        display:block;
+        display:none;
     }
 }
 .nav-links{
