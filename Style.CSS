@@ -26,12 +26,12 @@ body{
 /* Header Tag Items */
 header{
     position: sticky;
-    top: 0;
+    top: 0px;
     z-index: 10000;
 }
 
 /* Nav-bar items */
-.nav-bar{
+.navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,13 +44,6 @@ header{
     font-size: 28px;
     font-weight: bold;
     color: var(--white);
-}
-
-/* Nav-link Style Items */
-.nav-link{
-    list-style: none;
-    display: flex;
-    gap: 30px;
 }
 
 /* Nav-link Items */
@@ -70,6 +63,7 @@ header{
     background: linear-gradient( to right,rgb(27, 79, 114),rgb(89, 205, 233));
     color: #F4F6F8;
     text-align: center;
+    padding: 80px 20px;
 }
 
 /* Hero-Section Font Items */
@@ -100,7 +94,7 @@ header{
 
 .skill-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgb(0 , 0 , 0.888);
+    box-shadow: 0 10px 30px rgba(0, 0, 0 , 0.888);
 }
 
 /* Project Display Items */
@@ -121,9 +115,9 @@ header{
     transition: transform 0.2s,box-shadow 0.2s;
 }
 
-.project-card:Hover{
+.project-card:hover{
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgb(0 , 0 , 0.888);    
+    box-shadow: 0 10px 30px rgba(0, 0, 0 , 0.888);    
 }
 
 /* Project Image Card Items */
@@ -136,7 +130,7 @@ header{
 /* Project Image Link Items */
 .project-card a{
     text-decoration: none;
-    color: #FFB703
+    color: #FFB703;
 }
 
 .btn{
@@ -162,13 +156,13 @@ header{
 }
 
 section{
-    padding: 40px 3%;
+    padding: 40px 4%;
 }
 
 section h2{
-    font-size: 2.2rem;
+    font-size: 3rem;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
     position: relative;
 }
 
@@ -183,7 +177,7 @@ section h2::after{
 }
 
 .hero-section h1{
-    animation: fadeinup 1.2s;
+    animation: fadeinup 1.2s ease 0.4s both;
 }
 
 @keyframes fadeinup{
@@ -192,11 +186,11 @@ section h2::after{
 }
 
 .tagline{
-    animation: fadeinup 1.5s;
+    animation: fadeinup 1.5s ease 0.5s both;
 }
 
 .hero-button{
-    animation: fadeinup 1.9s;
+    animation: fadeinup 1.9s ease 0.5s both;
 }
 
 .contact-section{
@@ -205,12 +199,12 @@ section h2::after{
 }
 
 .form-group{
-    margin-bottom: 2px;
+    margin-bottom: 20px;
 }
 
 .form-group label{
     display: block;
-    font-weight: 600px;
+    font-weight: 600;
     margin-bottom: 5px;
     color: var(--primary);
 }
@@ -244,7 +238,8 @@ section h2::after{
 }
 
 .menu-toggle{
-    background-color: none;
+    display: none;
+    background: none;
     border: none;
     color: #FFFFFF;
     font-size: 30px;
@@ -253,22 +248,24 @@ section h2::after{
 
 @media (max-width:768px){
     .menu-toggle{
-        display:none;
+        display:block;
     }
 }
-.nav-links{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    width:100%;
-    background:#1B4F72;
-    flex-direction:column;
-    text-align:center;
-    padding:20px 0;
-    gap:20px;
+.nav-link{
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #1B4F72;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    gap: 20px;
+    list-style: none;
+    font-weight: 500;
 }
  
-.nav-links.open{
+.nav-link.open{
     display:flex;
 }
