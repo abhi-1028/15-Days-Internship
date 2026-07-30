@@ -17,45 +17,29 @@ if (heroTitle){
 
 //Dark Mode
 let themeBtn = document.querySelector(".theme-toggle");
- 
 function updateThemeIcon(theme) {
     themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
 }
  
 if (themeBtn) {
- 
     let savedTheme = localStorage.getItem("theme") || "light";
- 
     document.body.dataset.theme = savedTheme;
- 
     updateThemeIcon(savedTheme);
- 
     themeBtn.addEventListener("click", () => {
- 
         let nextTheme =
-            document.body.dataset.theme === "light"
-                ? "dark"
-                : "light";
- 
+        document.body.dataset.theme === "light"? "dark":"light";
         document.body.dataset.theme = nextTheme;
- 
         localStorage.setItem("theme", nextTheme);
- 
-        updateThemeIcon(nextTheme);
- 
+        updateThemeIcon(nextTheme); 
     });
- 
 }
 
 let menuToggle = document.querySelector(".menu-toggle");
 let navLinks = document.querySelector(".nav-link");
 
 if (menuToggle && navLinks) {
-
     menuToggle.addEventListener("click", () => {
-
         navLinks.classList.toggle("open");
-
         menuToggle.setAttribute(
             "aria-expanded",
             navLinks.classList.contains("open")
@@ -63,14 +47,10 @@ if (menuToggle && navLinks) {
     });
 
     document.querySelectorAll(".nav-link a").forEach(link => {
-
         link.addEventListener("click", () => {
-
             navLinks.classList.remove("open");
             menuToggle.setAttribute("aria-expanded", "false");
-
         });
-
     });
 
     window.addEventListener("resize", () => {
@@ -79,10 +59,9 @@ if (menuToggle && navLinks) {
             menuToggle.setAttribute("aria-expanded", "false");
         }
     });
-
 }
-let header = document.querySelector(".site-header");
 
+let header = document.querySelector(".site-header");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
         header.classList.add("scrolled");
@@ -90,7 +69,6 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
-
 
 let sections = document.querySelectorAll("section[id]");
 let navItems = document.querySelectorAll(".nav-link a");
@@ -119,22 +97,23 @@ if(footyear){
 
 //project filter
 let projects=[{id:1,name:"Eventify AI", category:"web", tech:["React", "API"]},
-{id:2,name:"AI Personal Workout Builder",category:"web",tech:["Javascript"]},
-{id:3, name:"Campus Connect+", category:"design",tech:["HTML","CSS"]}]
+{id:2,name:"AI Personal Workout Builder", category:"web",tech:["Javascript"]},
+{id:3,name:"Campus Connect+", category:"design",tech:["HTML","CSS"]}, 
+{id:4,name:"Portfolio", category:"web", tech:["HTML","CSS","JavaScript","React"]}]
  
 function renderProjects(filter="all"){
-let grid=document.querySelector(".project-grid");
-let filtered=filter==="all"?projects
-:projects.filter(p=>p.category===filter);
-grid.innerHTML=filtered.map(project=>`
-    <article class="project-card">
-        <div class="project-card-body">
-            <h3>${project.name}</h3>
-            <div class="project-tags">${project.tech.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-            <a href="#" class="btn btn-primary">view Project</a>          
-        </div>
-    </article>
-`).join("");
+    let grid=document.querySelector(".project-grid");
+    let filtered=filter==="all"?projects
+    :projects.filter(p=>p.category===filter);
+    grid.innerHTML=filtered.map(project=>`
+        <article class="project-card">
+            <div class="project-card-body">
+                <h3>${project.name}</h3>
+                <div class="project-tags">${project.tech.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+                <a href="#" class="btn btn-primary">View Project</a>          
+            </div>
+        </article>
+    `).join("");
 }
 
 //filter button
@@ -146,8 +125,9 @@ document.querySelectorAll(".filter.btn").forEach(btn=>{
     });
 });
  
-// renderProjects(); (It overrides the HTML Project Images)
-let form=document.querySelector("#contact form");
+renderProjects();
+
+let form=document.querySelector("#contact");
 function showError(input,message){
 let group=input.closest('.form-group');
 let existing=group.querySelector(".error-msg");
@@ -182,8 +162,8 @@ form.addEventListener("submit",async(e)=>{
         showError(email,"Enter a valid email");
         valid=false
     }
-    if(message.value.trim().length<10){
-        showError(message,"Message must be at least 10 characters")
+    if(message.value.trim().length<25){
+        showError(message,"Message must be at least 25 characters")
         valid=false;
     }
     if(valid){
